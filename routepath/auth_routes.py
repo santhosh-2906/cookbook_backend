@@ -1,6 +1,8 @@
 from flask import Blueprint, request, jsonify
 from config import get_db_connection
 from flask_cors import CORS
+
+# ---------------- Blueprint Setup ----------------
 bp = Blueprint("auth", __name__)
 CORS(bp)
 
@@ -17,16 +19,16 @@ def register():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
 
-    # check if user already exists
+    # Check if user already exists
     cursor.execute("SELECT * FROM users WHERE username=%s", (username,))
-    existing = cursor.fetchone()
-    if existing:
+    if cursor.fetchone():
         cursor.close()
         conn.close()
         return jsonify({"error": "User already exists"}), 400
-
-    # store plain text password (beginner style)
-    cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (username, password))
+    cursor.execute(
+        "INSERT INTO users (username, password) VALUES (%s, %s)", 
+        (username, password)
+    )
     conn.commit()
 
     cursor.close()
@@ -47,8 +49,10 @@ def login():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
 
-    # check username + password directly (no hashing)
-    cursor.execute("SELECT * FROM users WHERE username=%s AND password=%s", (username, password))
+    cursor.execute(
+        "SELECT * FROM users WHERE username=%s AND password=%s", 
+        (username, password)
+    )
     user = cursor.fetchone()
 
     cursor.close()
@@ -60,7 +64,7 @@ def login():
     return jsonify({"message": "Login successful", "user_id": user["id"]})
 
 
-# ---------------- Update ----------------
+# ---------------- Update User ----------------
 @bp.route("/users/<int:user_id>", methods=["PUT"])
 def update_user(user_id):
     data = request.json
@@ -74,7 +78,6 @@ def update_user(user_id):
     cursor = conn.cursor()
 
     if new_password:
-        # update username + password directly
         cursor.execute(
             "UPDATE users SET username=%s, password=%s WHERE id=%s",
             (new_username, new_password, user_id)
@@ -91,7 +94,7 @@ def update_user(user_id):
     return jsonify({"message": "User updated successfully!"})
 
 
-# ---------------- Delete ----------------
+# ---------------- Delete User ----------------
 @bp.route("/users/<int:user_id>", methods=["DELETE"])
 def delete_user(user_id):
     conn = get_db_connection()
