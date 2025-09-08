@@ -1,9 +1,10 @@
 🍴 CookBook - Backend
 
-This is the backend for the CookBook application, built with Python Flask and MySQL. It handles user authentication, recipe management, and serves as the API for the frontend.
+    This is the backend for the CookBook application, built with Python Flask and MySQL. It handles user authentication, recipe management, and serves as the API for the frontend.
 
 Preview
- ![CookBook Backend Screenshot](./static/img/image.png)
+
+   ![CookBook Backend Screenshot](./static/img/image.png)
 
 🌐 Live Demo
 
@@ -36,6 +37,19 @@ Features
     MySQL / MariaDB
 
   Gunicorn (for production deployment)
+
+```
+📂 Folder Structure
+backend/
+ ├─ app.py            # Main Flask app
+ ├─ config.py         # DB connection / configuration
+ ├─ routes/           # API route modules
+ ├─ models/           # Database models (optional)
+ ├─ migrations/       # Database migrations (optional)
+ ├─ .env
+ ├─ requirements.txt
+ └─ README.md
+```
 
 💻 Installation
 
@@ -70,20 +84,9 @@ Run the Flask server:
 
     flask run
 
-
 The API will be available at http://localhost:5000.
-```
-📂 Folder Structure
-backend/
- ├─ app.py            # Main Flask app
- ├─ config.py         # DB connection / configuration
- ├─ routes/           # API route modules
- ├─ models/           # Database models (optional)
- ├─ migrations/       # Database migrations (optional)
- ├─ .env
- ├─ requirements.txt
- └─ README.md
-```
+
 🔧 Scripts
+
     flask run          # Run the backend in development mode
     gunicorn app:app   # Run in production (ensure gunicorn is installed)
