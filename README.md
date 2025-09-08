@@ -1,42 +1,42 @@
 🍴 CookBook - Backend
 
-    This is the backend for the CookBook application, built with Python Flask and MySQL. It handles user authentication, recipe management, and serves as the API for the frontend.
+This is the backend for the CookBook application, built with Python Flask and MySQL. It handles user authentication, recipe management, and serves as the API for the frontend.
 
-Preview
+**Preview**
 
    ![CookBook Backend Screenshot](./static/img/image.png)
 
-🌐 Live Demo
+**🌐 Live Demo**
 
-    Frontend: https://cookbook-frontend-oi5f.vercel.app
+Frontend: https://cookbook-frontend-oi5f.vercel.app
 
-    Backend API: https://your-backend-url.com
+Backend API: https://your-backend-url.com
 
-Features
+**Features**
 
-    User authentication (Login/Register)
+User authentication (Login/Register)
 
-    Create, read, update, delete recipes
+Create, read, update, delete recipes
 
-    Recipe steps with timers
+Recipe steps with timers
 
-    RESTful API endpoints
+RESTful API endpoints
 
-    CORS enabled for frontend integration
+CORS enabled for frontend integration
 
-    Secure password hashing
+Secure password hashing
 
-🛠️ Tech Stack
+**🛠️ Tech Stack**
 
-    Python 3.10+
-  
-    Flask
-  
-    Flask-CORS
-  
-    MySQL / MariaDB
+Python 3.10+
 
-  Gunicorn (for production deployment)
+Flask
+
+Flask-CORS
+
+MySQL / MariaDB
+
+Gunicorn (for production deployment)
 
 ```
 📂 Folder Structure
@@ -51,14 +51,14 @@ backend/
  └─ README.md
 ```
 
-💻 Installation
+**💻 Installation**
 
   Clone the repository:
 
     git clone https://github.com/yourusername/cookbook-backend.git
     cd cookbook-backend
 
-Create a virtual environment and activate it:
+**Create a virtual environment and activate it:**
 
     python -m venv venv
 # Windows
