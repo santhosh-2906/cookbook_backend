@@ -9,7 +9,6 @@ import routepath.recipe_routes as recipe_routes
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "https://cookbook-frontend-oi5f-78s9vfmps-santhoshs-projects-072daa28.vercel.app"]}})
 
-
 # ---------------- Initialize Database ----------------
 def init_db():
     conn = get_db_connection()
